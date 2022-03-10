@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <html>
+        <head>
+            <title>Eventos</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="stylesheet" href="css/Styles.css">
+        </head>
+        <body>
+            <header>
+                <div class="Title" >
+                    <h1>ITICKET</h1>
+                </div>
+                <div class="Options">
+                    <ul>
+                        <button>
+                            <li><a th:href="@{/eventosN}" style="text-decoration: none; color: white;">Crear Evento</a></li>
+                        </button>
+
+                        <button>
+                            <li><a th:href="@{/eventos}" style= "text-decoration: none; color: white;">Todos los Eventos</a></li>
+                        </button>
+
+                    </ul>
+                </div>
+            </header>
+            <table id="events">
+                <thead>
+                    <tr>
+                        <th>Artista</th>
+                        <th>Costo Evento</th>
+                        <th>Fecha</th>
+                        <th>Capacidad Maxima</th>
+                        <th>Lugar</th>
+                        <th>Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="event : ${eventos} ">
+                    <tr>
+
+                        <td th:text="${event.getArtista}"></td>
+                        <td th:text="${event.getCosto}"></td>
+                        <td th:text="${event.getFecha}"></td>
+                        <td th:text="${event.getCapacidad}"></td>
+                        <td th:text="${event.getLugar}"></td>
+                        <td>
+                            <a th:href="@{/delete/{id}(id=${event.getId})}">Delete</a></td>
+
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+    </body>
+</html>

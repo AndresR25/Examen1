@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Crear evento</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/Styles.css">
+    </head>
+    <body>
+        <header>
+            <div class="Title" >
+                <h1>ITICKET</h1>
+            </div>
+            <div class="Options">
+                <ul>
+                    <button>
+                        <li><a th:href="@{/eventosN}" style="text-decoration: none; color: white;">Crear Evento</a></li>
+                    </button>
+
+                    <button>
+                        <li><a th:href="@{/eventos}" style= "text-decoration: none; color: white;">Todos los Eventos</a></li>
+                    </button>
+
+                </ul>
+            </div>
+        </header>
+        <h1>Crear evento</h1>
+        <div class="container">
+            <form th:object="${evento}"
+                  th:action="@{/save}"
+                  method="POST">
+
+
+                <div> 
+                    <label for="artista" class="label">Artista</label>
+                    <input type="text" th:field="*{artista}">
+                </div>
+                <div> 
+                    <label for="costo" class="label">Costo</label>
+                    <input type="text" th:field="*{costo}">
+                </div>
+                <div> 
+                    <label for="fecha" class="label">Fecha</label>
+                    <input type="text" th:field="*{fecha}">
+                </div>
+                <div> 
+                    <label for="capacidad" class="label">Capacidad</label>
+                    <input type="text" th:field="*{capacidad}">
+                </div>
+                <div> 
+                    <label for="lugar" class="label">Lugar</label>
+                    <input type="text" th:field="*{lugar}">
+                </div>
+
+                <button type="submit" value="Guardar" class="submit">Submit</button>
+
+
+            </form>
+
+        </div>
+    </body>
+</html>
